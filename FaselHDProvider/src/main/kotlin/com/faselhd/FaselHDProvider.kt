@@ -135,9 +135,10 @@ class FaselHD : MainAPI() {
             }
             doc.select("div[id=\"seasonList\"] div[class=\"col-xl-2 col-lg-3 col-md-6\"] div.seasonDiv")
                 .not(".active").apmap { it ->
-                    var s = app.get("$mainUrl/?p="+it.attr("data-href")).document
+					 val id = it.attr("onclick").replace(".*\/\?p=|'".toRegex(), "")
+                    var s = app.get("$mainUrl/?p="+id).document
                     if(s.select("title").text() == "Just a moment...") {
-                        s = app.get("$alternativeUrl/?p="+it.attr("data-href"), interceptor = cfKiller).document
+                        s = app.get("$alternativeUrl/?p="+id, interceptor = cfKiller).document
                     }
                     s.select("div.epAll a").map {
                         episodes.add(
