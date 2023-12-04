@@ -14,7 +14,7 @@ class FaselHD : MainAPI() {
     override var lang = "ar"
     override var mainUrl = "https://faselhd.io"
     private  val alternativeUrl = "https://www.faselhd.club"
-    override var name = "FaselHD"
+    override var name = "Server1"
     override val usesWebView = false
     override val hasMainPage = true
     override val supportedTypes = setOf(TvType.TvSeries, TvType.Movie, TvType.AsianDrama, TvType.Anime)
