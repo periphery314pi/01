@@ -102,7 +102,7 @@ class FaselHD : MainAPI() {
         val tags = doc.select("div[id=\"singleList\"] div[class=\"col-xl-6 col-lg-6 col-md-6 col-sm-6\"]:contains(تصنيف الفيلم) a").map {
             it.text()
         }
-        val recommendations = doc.select("div#postList div.blockMovie").mapNotNull {
+        val recommendations = doc.select("div#postList div.postDiv").mapNotNull {
             it.toSearchResponse()
         }
         val synopsis = doc.select("div.singleDesc p").text()
